@@ -264,7 +264,6 @@ section {
 
 #about {
   position: relative;
-  margin-top:4rem;
   margin-bottom: 4rem; /* Add margin to create space between sections */
 }
 
@@ -513,4 +512,6 @@ footer p {
 
 
 
-
+.text-container{
+  padding-top: 2rem;
+}
