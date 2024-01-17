@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yash Kantharia</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+  </head>
+  <body>
+    <nav id="desktop-nav">
+      <div class="logo">Yash Kantharia</div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Skills & Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav id="hamburger-nav">
+      <div class="logo">Yash Kantharia</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
+      </div>
+    </nav>
+    <section id="profile">
+      <div class="section__pic-container">
+        <img src="./assets/profile-pic.png" alt="Yash Kantharia profile picture" />
+      </div>
+      <div class="section__text">
+        <p class="section__text__p1">Hello, I'm</p>
+        <h1 class="title">Yash Kantharia</h1>
+        <p class="section__text__p2">Data Wizard and Software Engineer</p>
+        <div class="btn-container">
+          <button
+            class="btn btn-color-2"
+            onclick="window.open('./assets/resume.pdf')"
+          >
+            Download CV
+          </button>
+          <button class="btn btn-color-1" onclick="location.href='#contact'">
+            Contact Info
+          </button>
+        </div>
+        <div id="socials-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="My LinkedIn profile"
+            class="icon"
+            onclick="location.href='https://linkedin.com/in/yashkantharia'"
+          />
+          <img
+            src="./assets/github.png"
+            alt="My Github profile"
+            class="icon"
+            onclick="location.href='https://github.com/yashkantharia'"
+          />
+          <img
+            src="./assets/kaggle.svg"
+            alt="My Kaggle profile"
+            class="icon"
+            onclick="location.href='https://kaggle.com/yashkantharia'"
+          />
+          <img
+            src="./assets/medium.png"
+            alt="My Medium profile"
+            class="icon"
+            onclick="location.href='https://yashkantharia.medium.com/'"
+          />
+        </div>
+      </div>
+    </section>
+    <section id="about" style=' '>
+      <p class="section__text__p1">Get To Know More</p>
+      <h1 class="title" >About Me</h1>
+      <div class="section-container">
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <img
+                src="./assets/experience.png"
+                alt="Experience icon"
+                class="icon"
+              />
+              <h3>Experience</h3>
+              <p>3+ years <br> <br>
+                <h4>Data Engineer</h4> <br>
+                <h4>Senior Customer Success Engineer</h4></p>
+            </div>
+            <div class="details-container">
+              <img
+                src="./assets/education.png"
+                alt="Education icon"
+                class="icon"
+              />
+              <h3>Education</h3>
+            </br>
+              <h4>Master of Science </h4><h5>Computer Science</h5><br>
+              <h4>Bachelor of Engineering</h4><h5>Information Technology</h5>
+            </div>
+          </div>
+        </div>
+        <div class='about-containers'>
+          <div class="text-container">
+            <p>
+              Hey there! Yash here. I am a  Data Wizard (Engineer, Analayst, Scientist) and Software Engineer ⚡. My world revolves around data, from wrangling it and analyzing it to making analytical dashboards and prediction models. Python's my sidekick, NumPy and Pandas my trusty tools, and SQL, well, let's just say I speak its language fluently.
+              <br><br>
+
+              Building efficient data pipelines is my jam, the smoother the flow, the happier I am. I'm also a dab hand at designing dashboards that even my grandma could understand (no offense, Grandma!). My superpower? Turning complex data into actionable insights, like magic! ✨
+              <br><br>
+
+              But my story doesn't end with code and dashboards. I'm a passionate alchemist in the lab of Data Science, where I use Machine Learning and Deep Learning to unlock the secrets hidden within massive datasets. From predicting customer churn to building self-driving cars (okay, maybe not cars yet, but give me time!), I'm always up for a new challenge.
+              <br>
+
+              Collaboration is my fuel. Brainstorming with a team, tackling challenges together, and seeing ideas come to life – that's where the real magic happens! So, what's my next adventure? Joining a team of passionate folks who see data as the fuel for innovation, who value collaboration and innovation.
+              <br><br>
+
+              Ready to dive into the dataverse with a Potterhead BeatBoxer and Code whisperer who also happens to be a Data Science enthusiast? Hit me up, let's make some magic happen! ✨
+              <br><br>
+              P.S. My resume and cover letter have the tech specs covered, but this is the real me.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+    <div>
+    <section id="experience" style="align-content: center;">
+      <h1 class="title" style="text-align:center;">Skills and Work Experience</h1>
+      <br>
+
+          <section id="skills">
+
+ <div class="skills-container">
+            <h2 class="experience-sub-title" style="text-align: center;">Technical Skills</h2>
+
+  <div class="skill-row">
+    <!-- Programming Languages List -->
+    <div class="skill-column">
+      <h2>Programming Languages</h2>
+      <ul class="skills-list">
+        <li>Python</li>
+        <li>SQL</li>
+        <li>Java</li>
+        <li>C</li>
+        <li>C++</li>
+        <li>JavaScript</li>
+        <li>Swift</li>
+        <li>React Native</li>
+        <!-- Add more programming languages as needed -->
+      </ul>
+    </div>
+
+    <!-- Software Tools List -->
+    <div class="skill-column">
+      <h2>Software Tools</h2>
+      <ul class="skills-list">
+        <li>Github</li>
+        <li>Postman</li>
+        <li>Dremio</li>
+        <li>Jupyter Notebook</li>
+        <li>Android Studio</li>
+        <li>Jira</li>
+        <li>Jenkins</li>
+        <li>Visual Studio Code</li>
+        <li> Linux / UNIX </li>
+        <!-- Add more software tools as needed -->
+      </ul>
+    </div>
+
+    <!-- Deep Learning List -->
+    <div class="skill-column">
+      <h2>Deep Learning</h2>
+      <ul class="skills-list">
+        <li>TensorFlow</li>
+        <li>PyTorch</li>
+        <li>Keras</li>
+        <li>Neural Networks</li>
+        <li>Convolutional Neural Networks (CNN)</li>
+        <li>Recurrent Neural Networks (RNN)</li>
+        <li>Generative Adversarial Networks (GAN)</li>
+        <!-- Add more deep learning skills as needed -->
+      </ul>
+    </div>
+
+    <!-- Artificial Intelligence List -->
+    <div class="skill-column">
+      <h2>Artificial Intelligence</h2>
+      <ul class="skills-list">
+        <li>Machine Learning Algorithms</li>
+        <li>Decision Trees</li>
+        <li>Random Forest</li>
+        <li>Support Vector Machines (SVM)</li>
+        <li>Clustering Algorithms</li>
+        <li>Ensemble Learning</li>
+        <li>AI Ethics</li>
+        <!-- Add more AI-related skills as needed -->
+      </ul>
+    </div>
+
+    <!-- NLP List -->
+    <div class="skill-column">
+      <h2>NLP</h2>
+      <ul class="skills-list">
+        <li>Natural Language Toolkit (NLTK)</li>
+        <li>spaCy</li>
+        <li>Word Embeddings (Word2Vec, GloVe)</li>
+        <li>Named Entity Recognition (NER)</li>
+        <li>Text Classification</li>
+        <li>Sentiment Analysis</li>
+        <li>Language Models (BERT, GPT)</li>
+        <!-- Add more NLP skills as needed -->
+      </ul>
+    </div>
+
+    <!-- Machine Learning List -->
+    <div class="skill-column">
+      <h2>Machine Learning</h2>
+      <ul class="skills-list">
+        <li>XGBoost</li>
+        <li>Random Forest</li>
+        <li>AdaBoost</li>
+        <li>Scikit-Learn</li>
+        <li>Time Series Analysis</li>
+        <!-- Add more general machine learning skills as needed -->
+      </ul>
+    </div>
+
+    <!-- Data Engineering and Analytics List -->
+    <div class="skill-column">
+      <h2>Data Engineering and Analytics</h2>
+      <ul class="skills-list">
+        <li>NumPy</li>
+        <li>Pandas</li>
+        <li>Flask</li>
+        <li>BeautifulSoup</li>
+        <li>Selenium</li>
+        <li>LangChain</li>
+        <li>Matplotlib</li>
+        <li>Tableau</li>
+        <!-- Add more data engineering and analytics tools as needed -->
+      </ul>
+    </div>
+
+    <!-- Cloud List -->
+    <div class="skill-column">
+      <h2>Cloud</h2>
+      <ul class="skills-list">
+        <li>AWS</li>
+        <li>Azure</li>
+        <li>Google Cloud</li>
+        <li>Firebase</li>
+        <!-- Add more cloud platforms as needed -->
+      </ul>
+    </div>
+
+    <!-- Certifications List -->
+    <div class="skill-column">
+      <h2>Certifications</h2>
+      <ul class="skills-list">
+        <li>AI For Everyone (Coursera)</li>
+        <li>SQL Function (Coursera)</li>
+        <li>Machine Learning A-Z™ (Udemy)</li>
+        <li>Python (Kaggle, HackerRank, DataCamp)</li>
+        <li>Android Development (Udemy)</li>
+        <!-- Add more certifications as needed -->
+      </ul>
+    </div>
+  </div>
+</div>
+
+</section>
+
+        </section>
+        </div>
+        
+
+        
+
+        <div class="details-container" style="max-width: 80%;">
+          <h2 class="experience-sub-title">Work Experience</h2>
+
+          <!-- Job 1 -->
+          <div class="job">
+            <h2>Data Engineer</h2>
+            <h3>Fractal (Crux Intelligence)</h3>
+            <p>Mumbai, India</p>
+            <p>08/2021 - 08/2022</p>
+            <br>
+            <li>Developed efficient data pipelines and automation scripts using Python, Tableau and SQL, resulting in a 60% reduction in execution time.</li>
+            <li>Designed analytical dashboards, boosting user adoption by 30%.</li>
+            <li>Conducted technical interviews and trained three team members.</li>
+            <p>Skills Used: Python, SQL, Tableau, AWS, Azure, Postman, Dremio, Linux, REST API, JavaScript</p>
+          </div>
+
+          <!-- Job 2 -->
+          <div class="job">
+            <h2>Senior Customer Success Engineer</h2>
+            <h3>CleverTap</h3>
+            <p>Mumbai, India</p>
+            <p>01/2019 - 08/2021</p>
+            <br>
+            <li>Resolved complex SDK integration issues for Android, iOS, and Web.</li>
+            <li>Innovated solutions in Java, JavaScript, HTML, CSS, and Python, increasing user adoption by 10% and retaining four clients.</li>
+            <li>Managed and mentored a team of 5, enhancing skills and productivity.</li>
+            <p>Skills Used: CleverTap SDK, Android Development, Web Development, Java, Swift, HTML, CSS, React Native, Postman, REST API, Python, AWS, GCP, Linux, JIRA</p>
+          </div>
+
+
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+    <section id="projects" >
+      <h1 class="title">Projects</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/AI.jpg"
+                alt="Project 1"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Data Science Projects Repository</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/yashkantharia/Data-Science-Projects'"
+              >
+                Github
+              </button>
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/ct.jpg"
+                alt="Project 2"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">CleverTapper (Android App)</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/yashkantharia/CleverTapper-android'"
+              >
+                Github
+              </button>
+              
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/web.png"
+                alt="Project 3"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">WebScrapper with Selenium</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/yashkantharia/Webscrapper_api'"
+              >
+                Github
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+
+  </div>
+    <section id="contact">
+      <p class="section__text__p1">Get in Touch</p>
+      <h1 class="title">Contact Me</h1>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <img
+            src="./assets/email.png"
+            alt="Email icon"
+            class="icon contact-icon email-icon"
+          />
+          <p><a href="mailto:yashkantharia17@gmail.com">yashkantharia17@gmail.com</a></p>
+        </div>
+        <div class="contact-info-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="LinkedIn icon"
+            class="icon contact-icon"
+          />
+          <p><a href="https://www.linkedin.com/in/yashkantharia">LinkedIn</a></p>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <nav>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Skills & Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
