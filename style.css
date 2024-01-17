@@ -300,6 +300,9 @@ section {
   border-color: rgb(163, 163, 163);
   text-align: center;
   margin: 0 auto;
+  overflow: hidden;
+  height: auto;
+  max-width: 80%;
 
   }
 
@@ -443,8 +446,9 @@ footer p {
 .job {
   margin-bottom: 2rem;
   padding: 1rem;
-  max-height: 300px; /* Set a maximum height */
-  overflow-y: auto; /* Enable vertical scrolling if needed */
+  overflow: hidden;
+  height: auto;
+  max-width: 80%;
 }
 
 .job h3 {
