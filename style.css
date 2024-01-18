@@ -449,6 +449,7 @@ footer p {
   overflow: hidden;
   height: auto;
   max-width: 80%;
+  margin: auto;
 }
 
 .job h3 {
