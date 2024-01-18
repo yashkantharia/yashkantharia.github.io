@@ -7,7 +7,8 @@
   padding: 0;
 }
 
-@media screen and (max-width: 1000px) and (orientation: landscape) {
+
+@media screen and (max-width: 800px) and (orientation: landscape) {
   #profile {
     padding-bottom: 20rem; /* Adjust as needed for landscape mode */
   }
@@ -177,6 +178,7 @@ section {
   gap: 5rem;
   height: 100%;
   margin:0;
+  padding-bottom:10rem;
 }
 
 .section__pic-container {
