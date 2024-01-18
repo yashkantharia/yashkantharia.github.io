@@ -300,9 +300,8 @@ section {
   border-color: rgb(163, 163, 163);
   text-align: center;
   margin: 0 auto;
-  overflow: hidden;
   height: auto;
-  max-width: 80%;
+  width: auto;
 
   }
 
