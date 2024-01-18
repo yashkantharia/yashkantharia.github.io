@@ -3,11 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, orientation=portrait">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, orientation=portrait">
     <title>Yash Kantharia</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
+    <script>
+    // Lock the screen in portrait mode on page load
+    function lockPortrait() {
+      if (screen.orientation) {
+        screen.orientation.lock('portrait');
+      }
+    }
+
+    // Call the lockPortrait function when the page loads
+    window.addEventListener('DOMContentLoaded', lockPortrait);
+  </script>
+
   </head>
   <body>
     <nav id="desktop-nav">
@@ -21,7 +32,7 @@
       </div>
     </nav>
     <nav id="hamburger-nav">
-      <div class="hamburger-menu">
+      <div class="hamburger-menu" style="padding-left: 20rem;">
         <div class="hamburger-icon" onclick="toggleMenu()">
           <span></span>
           <span></span>
@@ -36,7 +47,7 @@
       </div>
     </nav>
     <div>
-    <section id="profile">
+    <section id="profile" style='margin-bottom:5rem'>
       <div class="section__pic-container">
         <img src="./assets/profile-pic.png" alt="Yash Kantharia profile picture" />
       </div>
@@ -84,7 +95,7 @@
       </div>
     </section>
   </div>
-  <div>
+
     <section id="about" >
       <p class="section__text__p1">Get To Know More</p>
       <h1 class="title" >About Me</h1>
