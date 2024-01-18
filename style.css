@@ -7,16 +7,9 @@
   padding: 0;
 }
 
-@media screen and (orientation: landscape) {
-  body {
-    transform: rotate(90deg);
-    transform-origin: left top;
-    width: 100vh;
-    height: 100vw;
-    overflow-x: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+  #profile {
+    padding-bottom: 10rem; /* Adjust as needed for landscape mode */
   }
 }
 
