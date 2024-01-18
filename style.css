@@ -9,7 +9,7 @@
 
 @media screen and (max-width: 1000px) and (orientation: landscape) {
   #profile {
-    padding-bottom: 10rem; /* Adjust as needed for landscape mode */
+    padding-bottom: 20rem; /* Adjust as needed for landscape mode */
   }
 }
 
