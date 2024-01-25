@@ -18,6 +18,12 @@
 
     // Call the lockPortrait function when the page loads
     window.addEventListener('DOMContentLoaded', lockPortrait);
+
+    // Send event to Google Analytics
+    document.getElementById('resume_button').addEventListener('click', function() {
+    ga('send', 'event', 'Button', 'click', 'Resume Downloaded');
+  });
+
   </script>
 
     <!-- Google tag (gtag.js) -->
@@ -93,9 +99,10 @@
         <div class="btn-container">
           <button
             class="btn btn-color-2"
+            id='resume_button'
             onclick="window.open('./assets/resume.pdf')"
           >
-            Download CV
+            Download Resume
           </button>
           <button class="btn btn-color-1" onclick="location.href='#contact'">
             Contact Info
