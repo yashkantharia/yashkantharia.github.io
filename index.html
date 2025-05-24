@@ -6,15 +6,7 @@
     <title>Yash Kantharia - Developer Portfolio</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-    // Send event to Google Analytics
-    document.getElementById('resume_button').addEventListener('click', function() {
-    gtag('send', 'event', 'Button', 'click', 'Resume Downloaded');
-  });
-
-    </script>
-
-    <!-- Google tag (gtag.js) -->
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-82H8MMC0NW"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -25,8 +17,8 @@
 
     <script type="module">
     // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-analytics.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -276,12 +268,14 @@
 
         /* Nav bar bottom border */
         .header {
-            background-color: transparent; /* Make header background transparent by default */
+            /* Set background to surface color, not transparent */
+            background-color: var(--surface-color-dark); 
             border-bottom: 2px solid var(--primary-color-dark); /* Default dark mode border */
             transition: border-bottom-color 0.3s ease, background-color 0.3s ease;
         }
 
         body.light-mode .header {
+            background-color: var(--surface-color-light); /* Light mode header background */
             border-bottom-color: var(--primary-color-light); /* Light mode border */
         }
     </style>
@@ -300,7 +294,7 @@
        </div>
 
         <div id="nav-container"
-             class="nav-container hidden md:flex flex-row items-center justify-between w-full px-6 md:bg-transparent">
+             class="nav-container hidden md:flex flex-row items-center justify-between w-full px-6">
             <div class="flex flex-wrap gap-4">
                 <a href="#hero" class="nav-links-item transition duration-300 transform hover:scale-105">Home</a>
                 <a href="#skills" class="nav-links-item transition duration-300 transform hover:scale-105">Skills</a>
@@ -346,10 +340,10 @@
                         I am eager to join a forward-thinking team that values innovation and sees data as the fuel for strategic growth. Available to start immediately!
                     </p>
                     <div class="mt-8 flex flex-wrap justify-center md:justify-start gap-4">
-                        <a href="./assets/Yash_Kantharia_Resume.pdf" download="Yash_Kantharia_Resume.pdf" class="btn-primary">
+                        <a href="./assets/Yash_Kantharia_Resume.pdf" download="Yash_Kantharia_Resume.pdf" class="btn-primary" id="resume_button">
                             Download Resume <span class="material-icons ml-2">download</span>
                         </a>
-                        <a href="https://www.linkedin.com/in/yashkantharia" target="_blank" class="btn-secondary">
+                        <a href="https://www.linkedin.com/in/yashkantharia" target="_blank" class="btn-secondary" id="linkedin_button">
                             LinkedIn <span class="material-icons ml-2">link</span>
                         </a>
                     </div>
@@ -477,7 +471,7 @@
                 <div class="card project-item">
                     <div class="flex items-center justify-between project-title-group">
                         <h3 class="text-2xl font-semibold text-primary">Fine-tuning LLM for English-to-French Translation</h3>
-                        <a href="https://github.com/yashkantharia/Fine-tuning-LLM-for-English-to-French-Translation" target="_blank" class="github-icon text-text-color-dark hover:text-primary transition-colors duration-300 ml-4">
+                        <a href="https://github.com/yashkantharia/Fine-tuning-LLM-for-English-to-French-Translation" target="_blank" class="github-icon text-text-color-dark hover:text-primary transition-colors duration-300 ml-4" onclick="gtag('event', 'GitHub Click', { 'event_category': 'Project', 'event_label': 'Fine-tuning LLM for English-to-French Translation' });">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.867-.013-1.702-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.087 2.91.83.091-.647.35-1.087.636-1.332-2.22-.251-4.555-1.116-4.555-4.931 0-1.09.39-1.984 1.029-2.685-.103-.252-.446-1.275.097-2.651 0 0 .84-.27 2.75 1.022A9.607 9.607 0 0112 6.865c.85.004 1.705.115 2.504.337 1.909-1.292 2.747-1.022 2.747-1.022.546 1.376.202 2.399.097 2.651.64.701 1.029 1.595 1.029 2.685 0 3.825-2.339 4.675-4.566 4.922.359.309.678.92.678 1.855 0 1.334-.012 2.41-.012 2.737 0 .267.18.579.688.482C21.137 20.198 24 16.442 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd"/>
                             </svg>
@@ -489,7 +483,7 @@
                 <div class="card project-item">
                     <div class="flex items-center justify-between project-title-group">
                         <h3 class="text-2xl font-semibold text-primary">Data Pipeline Automation</h3>
-                        <a href="https://github.com/yashkantharia/Data-Pipeline-Automation" target="_blank" class="github-icon text-text-color-dark hover:text-primary transition-colors duration-300 ml-4">
+                        <a href="https://github.com/yashkantharia/Data-Pipeline-Automation" target="_blank" class="github-icon text-text-color-dark hover:text-primary transition-colors duration-300 ml-4" onclick="gtag('event', 'GitHub Click', { 'event_category': 'Project', 'event_label': 'Data Pipeline Automation' });">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.867-.013-1.702-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.087 2.91.83.091-.647.35-1.087.636-1.332-2.22-.251-4.555-1.116-4.555-4.931 0-1.09.39-1.984 1.029-2.685-.103-.252-.446-1.275.097-2.651 0 0 .84-.27 2.75 1.022A9.607 9.607 0 0112 6.865c.85.004 1.705.115 2.504.337 1.909-1.292 2.747-1.022 2.747-1.022.546 1.376.202 2.399.097 2.651.64.701 1.029 1.595 1.029 2.685 0 3.825-2.339 4.675-4.566 4.922.359.309.678.92.678 1.855 0 1.334-.012 2.41-.012 2.737 0 .267.18.579.688.482C21.137 20.198 24 16.442 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd"/>
                             </svg>
@@ -501,7 +495,7 @@
                 <div class="card project-item">
                     <div class="flex items-center justify-between project-title-group">
                         <h3 class="text-2xl font-semibold text-primary">WebScraper API</h3>
-                        <a href="https://github.com/yashkantharia/Webscrapper_api" target="_blank" class="github-icon text-text-color-dark hover:text-primary transition-colors duration-300 ml-4">
+                        <a href="https://github.com/yashkantharia/Webscrapper_api" target="_blank" class="github-icon text-text-color-dark hover:text-primary transition-colors duration-300 ml-4" onclick="gtag('event', 'GitHub Click', { 'event_category': 'Project', 'event_label': 'WebScraper API' });">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.867-.013-1.702-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.087 2.91.83.091-.647.35-1.087.636-1.332-2.22-.251-4.555-1.116-4.555-4.931 0-1.09.39-1.984 1.029-2.685-.103-.252-.446-1.275.097-2.651 0 0 .84-.27 2.75 1.022A9.607 9.607 0 0112 6.865c.85.004 1.705.115 2.504.337 1.909-1.292 2.747-1.022 2.747-1.022.546 1.376.202 2.399.097 2.651.64.701 1.029 1.595 1.029 2.685 0 3.825-2.339 4.675-4.566 4.922.359.309.678.92.678 1.855 0 1.334-.012 2.41-.012 2.737 0 .267.18.579.688.482C21.137 20.198 24 16.442 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd"/>
                             </svg>
@@ -513,7 +507,7 @@
                 <div class="card project-item">
                     <div class="flex items-center justify-between project-title-group">
                         <h3 class="text-2xl font-semibold text-primary">Real-time Uninstall Tracking for Android Applications</h3>
-                        <a href="https://github.com/yashkantharia/Real-time-Uninstall-Tracking-for-Android-Applications" target="_blank" class="github-icon text-text-color-dark hover:text-primary transition-colors duration-300 ml-4">
+                        <a href="https://github.com/yashkantharia/Real-time-Uninstall-Tracking-for-Android-Applications" target="_blank" class="github-icon text-text-color-dark hover:text-primary transition-colors duration-300 ml-4" onclick="gtag('event', 'GitHub Click', { 'event_category': 'Project', 'event_label': 'Real-time Uninstall Tracking for Android Applications' });">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.867-.013-1.702-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.087 2.91.83.091-.647.35-1.087.636-1.332-2.22-.251-4.555-1.116-4.555-4.931 0-1.09.39-1.984 1.029-2.685-.103-.252-.446-1.275.097-2.651 0 0 .84-.27 2.75 1.022A9.607 9.607 0 0112 6.865c.85.004 1.705.115 2.504.337 1.909-1.292 2.747-1.022 2.747-1.022.546 1.376.202 2.399.097 2.651.64.701 1.029 1.595 1.029 2.685 0 3.825-2.339 4.675-4.566 4.922.359.309.678.92.678 1.855 0 1.334-.012 2.41-.012 2.737 0 .267.18.579.688.482C21.137 20.198 24 16.442 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd"/>
                             </svg>
@@ -525,7 +519,7 @@
                 <div class="card project-item">
                     <div class="flex items-center justify-between project-title-group">
                         <h3 class="text-2xl font-semibold text-primary">Cat vs Dog Classification with Transfer Learning</h3>
-                        <a href="https://github.com/yashkantharia/Data-Science-Projects/tree/main/Deep%20Learning/Cat%20vs%20Dog%20Classification%20with%20Transfer%20Learning" target="_blank" class="github-icon text-text-color-dark hover:text-primary transition-colors duration-300 ml-4">
+                        <a href="https://github.com/yashkantharia/Data-Science-Projects/tree/main/Deep%20Learning/Cat%20vs%20Dog%20Classification%20with%20Transfer%20Learning" target="_blank" class="github-icon text-text-color-dark hover:text-primary transition-colors duration-300 ml-4" onclick="gtag('event', 'GitHub Click', { 'event_category': 'Project', 'event_label': 'Cat vs Dog Classification with Transfer Learning' });">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.867-.013-1.702-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.087 2.91.83.091-.647.35-1.087.636-1.332-2.22-.251-4.555-1.116-4.555-4.931 0-1.09.39-1.984 1.029-2.685-.103-.252-.446-1.275.097-2.651 0 0 .84-.27 2.75 1.022A9.607 9.607 0 0112 6.865c.85.004 1.705.115 2.504.337 1.909-1.292 2.747-1.022 2.747-1.022.546 1.376.202 2.399.097 2.651.64.701 1.029 1.595 1.029 2.685 0 3.825-2.339 4.675-4.566 4.922.359.309.678.92.678 1.855 0 1.334-.012 2.41-.012 2.737 0 .267.18.579.688.482C21.137 20.198 24 16.442 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd"/>
                             </svg>
@@ -537,7 +531,7 @@
                 <div class="card project-item">
                     <div class="flex items-center justify-between project-title-group">
                         <h3 class="text-2xl font-semibold text-primary">Power Consumption Prediction and Analysis for New York</h3>
-                        <a href="https://github.com/yashkantharia/Data-Science-Projects/tree/main/Time%20Series%20Forecasting/New%20York%20Power%20Consumption" target="_blank" class="github-icon text-text-color-dark hover:text-primary transition-colors duration-300 ml-4">
+                        <a href="https://github.com/yashkantharia/Data-Science-Projects/tree/main/Time%20Series%20Forecasting/New%20York%20Power%20Consumption" target="_blank" class="github-icon text-text-color-dark hover:text-primary transition-colors duration-300 ml-4" onclick="gtag('event', 'GitHub Click', { 'event_category': 'Project', 'event_label': 'Power Consumption Prediction and Analysis for New York' });">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.867-.013-1.702-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.087 2.91.83.091-.647.35-1.087.636-1.332-2.22-.251-4.555-1.116-4.555-4.931 0-1.09.39-1.984 1.029-2.685-.103-.252-.446-1.275.097-2.651 0 0 .84-.27 2.75 1.022A9.607 9.607 0 0112 6.865c.85.004 1.705.115 2.504.337 1.909-1.292 2.747-1.022 2.747-1.022.546 1.376.202 2.399.097 2.651.64.701 1.029 1.595 1.029 2.685 0 3.825-2.339 4.675-4.566 4.922.359.309.678.92.678 1.855 0 1.334-.012 2.41-.012 2.737 0 .267.18.579.688.482C21.137 20.198 24 16.442 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd"/>
                             </svg>
@@ -626,7 +620,7 @@
                     body.classList.remove('light-mode');
                     if (themeIconDesktop) themeIconDesktop.textContent = 'light_mode';
                     if (themeIconMobile) themeIconMobile.textContent = 'light_mode';
-                    header.style.backgroundColor = 'transparent'; // Header transparent on desktop
+                    header.style.backgroundColor = 'var(--surface-color-dark)'; // Set header background to surface color
                     footer.style.backgroundColor = 'var(--surface-color-dark)';
                     // Set background for nav-container in mobile view
                     if (window.innerWidth < 768) { // Only apply if mobile view
@@ -640,7 +634,7 @@
                     body.classList.remove('dark-mode');
                     if (themeIconDesktop) themeIconDesktop.textContent = 'dark_mode';
                     if (themeIconMobile) themeIconMobile.textContent = 'dark_mode';
-                    header.style.backgroundColor = 'transparent'; // Header transparent on desktop
+                    header.style.backgroundColor = 'var(--surface-color-light)'; // Set header background to surface color
                     footer.style.backgroundColor = 'var(--surface-color-light)';
                     // Set background for nav-container in mobile view
                     if (window.innerWidth < 768) { // Only apply if mobile view
