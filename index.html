@@ -224,21 +224,26 @@
                 top: 100%; /* Position below header */
                 left: 0;
                 width: 100%;
-                background-color: var(--surface-color-dark); /* Match header background */
+                /* Background color is handled by JS for mobile menu */
                 box-shadow: 0 4px 8px var(--shadow-color-dark);
                 flex-direction: column;
                 align-items: center;
                 padding: 1rem 0;
                 border-radius: 0 0 12px 12px; /* Rounded bottom corners */
-                transition: transform 0.3s ease-out;
+                transition: transform 0.3s ease-out, background-color 0.3s ease, border-color 0.3s ease; /* Added border-color transition */
                 transform: translateY(-100%); /* Start off-screen */
                 opacity: 0;
                 pointer-events: none; /* Disable interaction when hidden */
+                border: 2px solid transparent; /* Default transparent border */
             }
             .nav-container.open {
                 transform: translateY(0); /* Slide in */
                 opacity: 1;
                 pointer-events: all; /* Enable interaction */
+                border-color: var(--primary-color-dark); /* Default border color for dark mode */
+            }
+            body.light-mode .nav-container.open {
+                border-color: var(--primary-color-light); /* Light mode border color */
             }
             .nav-links-item { /* Target individual nav links */
                 margin: 0.5rem 0;
@@ -253,8 +258,9 @@
 
         /* Nav bar bottom border */
         .header {
+            background-color: transparent; /* Make header background transparent by default */
             border-bottom: 2px solid var(--primary-color-dark); /* Default dark mode border */
-            transition: border-bottom-color 0.3s ease;
+            transition: border-bottom-color 0.3s ease, background-color 0.3s ease;
         }
 
         body.light-mode .header {
@@ -263,26 +269,30 @@
     </style>
 </head>
 <body class="dark-mode">
-    <header class="header fixed top-0 left-0 right-0 z-50 py-4 px-6 md:px-12 flex justify-between items-center transition-colors duration-300" style="background-color: var(--surface-color-dark);">
+    <header class="header fixed top-0 left-0 right-0 z-50 py-4 px-6 md:px-12 flex justify-between items-center transition-colors duration-300">
         <h1 class="text-2xl font-bold text-primary">Yash Kantharia</h1>
         
-        <div class="flex items-center md:hidden menu-toggle-group">
-            <button id="theme-toggle-mobile" class="p-2 rounded-full focus:outline-none transition-colors duration-300" style="background-color: var(--background-color-dark);">
-                <span class="material-icons text-text-color-dark" id="theme-icon-mobile">light_mode</span>
-            </button>
-            <button id="menu-toggle" class="p-2 rounded-full focus:outline-none transition-colors duration-300" style="background-color: var(--background-color-dark);">
-                <span class="material-icons text-text-color-dark" id="hamburger-icon">menu</span>
-            </button>
-        </div>
+       <div class="flex items-center md:hidden menu-toggle-group">
+           <button id="theme-toggle-mobile" class="p-2 rounded-full focus:outline-none transition-colors duration-300" style="background-color: var(--background-color-dark);">
+               <span class="material-icons text-text-color-dark" id="theme-icon-mobile">light_mode</span>
+           </button>
+           <button id="menu-toggle" class="p-2 rounded-full focus:outline-none transition-colors duration-300" style="background-color: var(--background-color-dark);">
+               <span class="material-icons text-text-color-dark" id="hamburger-icon">menu</span>
+           </button>
+       </div>
 
-        <div id="nav-container" class="nav-container hidden md:flex flex-col md:flex-row items-center justify-between space-y-2 md:space-y-0 md:space-x-6">
-            <a href="#hero" class="nav-links-item transition duration-300 transform text-gray-300 hover:text-purple-400 hover:scale-105">Home</a>
-            <a href="#skills" class="nav-links-item transition duration-300 transform text-gray-300 hover:text-purple-400 hover:scale-105">Skills</a>
-            <a href="#experience" class="nav-links-item transition duration-300 transform text-gray-300 hover:text-purple-400 hover:scale-105">Experience</a>
-            <a href="#projects" class="nav-links-item transition duration-300 transform text-gray-300 hover:text-purple-400 hover:scale-105">Projects</a>
-            <a href="#publications" class="nav-links-item transition duration-300 transform text-gray-300 hover:text-purple-400 hover:scale-105">Publications</a>
-            <a href="#contact" class="nav-links-item transition duration-300 transform text-gray-300 hover:text-purple-400 hover:scale-105">Contact</a>
-            <button id="theme-toggle-desktop" class="p-2 rounded-full focus:outline-none transition-colors duration-300" style="background-color: var(--background-color-dark);">
+        <div id="nav-container"
+             class="nav-container hidden md:flex flex-row items-center justify-between w-full px-6 md:bg-transparent">
+            <div class="flex flex-wrap gap-4">
+                <a href="#hero" class="nav-links-item transition duration-300 transform hover:scale-105">Home</a>
+                <a href="#skills" class="nav-links-item transition duration-300 transform hover:scale-105">Skills</a>
+                <a href="#experience" class="nav-links-item transition duration-300 transform hover:scale-105">Experience</a>
+                <a href="#projects" class="nav-links-item transition duration-300 transform hover:scale-105">Projects</a>
+                <a href="#publications" class="nav-links-item transition duration-300 transform hover:scale-105">Publications</a>
+                <a href="#contact" class="nav-links-item transition duration-300 transform hover:scale-105">Contact</a>
+            </div>
+
+            <button id="theme-toggle-desktop" class="hidden md:block p-2 rounded-full focus:outline-none transition-colors duration-300" style="background-color: var(--background-color-dark);">
                 <span class="material-icons text-text-color-dark" id="theme-icon-desktop">light_mode</span>
             </button>
         </div>
@@ -449,6 +459,11 @@
                 <div class="card project-item">
                     <div class="flex items-center justify-between project-title-group">
                         <h3 class="text-2xl font-semibold text-primary">Fine-tuning LLM for English-to-French Translation</h3>
+                        <a href="https://github.com/yashkantharia/Fine-tuning-LLM-for-English-to-French-Translation" target="_blank" class="github-icon text-text-color-dark hover:text-primary transition-colors duration-300 ml-4">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.867-.013-1.702-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.087 2.91.83.091-.647.35-1.087.636-1.332-2.22-.251-4.555-1.116-4.555-4.931 0-1.09.39-1.984 1.029-2.685-.103-.252-.446-1.275.097-2.651 0 0 .84-.27 2.75 1.022A9.607 9.607 0 0112 6.865c.85.004 1.705.115 2.504.337 1.909-1.292 2.747-1.022 2.747-1.022.546 1.376.202 2.399.097 2.651.64.701 1.029 1.595 1.029 2.685 0 3.825-2.339 4.675-4.566 4.922.359.309.678.92.678 1.855 0 1.334-.012 2.41-.012 2.737 0 .267.18.579.688.482C21.137 20.198 24 16.442 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd"/>
+                            </svg>
+                        </a>
                     </div>
                     <p class="text-sm text-gray-500 mb-4 project-tech">Python, Sloth, Gemma 2b, PyTorch, Seq2Seq, LORA</p>
                     <p class="text-base mb-4">Enhanced English to French sentence translation quality using the Gemma 2b Large Language Model with Unsloth, outperforming a baseline Seq2Seq model (PyTorch).</p>
@@ -456,6 +471,11 @@
                 <div class="card project-item">
                     <div class="flex items-center justify-between project-title-group">
                         <h3 class="text-2xl font-semibold text-primary">Data Pipeline Automation</h3>
+                        <a href="https://github.com/yashkantharia/Data-Pipeline-Automation" target="_blank" class="github-icon text-text-color-dark hover:text-primary transition-colors duration-300 ml-4">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.867-.013-1.702-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.087 2.91.83.091-.647.35-1.087.636-1.332-2.22-.251-4.555-1.116-4.555-4.931 0-1.09.39-1.984 1.029-2.685-.103-.252-.446-1.275.097-2.651 0 0 .84-.27 2.75 1.022A9.607 9.607 0 0112 6.865c.85.004 1.705.115 2.504.337 1.909-1.292 2.747-1.022 2.747-1.022.546 1.376.202 2.399.097 2.651.64.701 1.029 1.595 1.029 2.685 0 3.825-2.339 4.675-4.566 4.922.359.309.678.92.678 1.855 0 1.334-.012 2.41-.012 2.737 0 .267.18.579.688.482C21.137 20.198 24 16.442 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd"/>
+                            </svg>
+                        </a>
                     </div>
                     <p class="text-sm text-gray-500 mb-4 project-tech">Python, SQL, Azure Blob Storage, REST APIs</p>
                     <p class="text-base mb-4">Implemented Python scripts to automate periodic data extraction from a private network's SQL database, executing complex calculations, formatting data, and uploading to Azure Blob Storage.</p>
@@ -475,6 +495,11 @@
                 <div class="card project-item">
                     <div class="flex items-center justify-between project-title-group">
                         <h3 class="text-2xl font-semibold text-primary">Real-time Uninstall Tracking for Android Applications</h3>
+                        <a href="https://github.com/yashkantharia/Real-time-Uninstall-Tracking-for-Android-Applications" target="_blank" class="github-icon text-text-color-dark hover:text-primary transition-colors duration-300 ml-4">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.867-.013-1.702-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.087 2.91.83.091-.647.35-1.087.636-1.332-2.22-.251-4.555-1.116-4.555-4.931 0-1.09.39-1.984 1.029-2.685-.103-.252-.446-1.275.097-2.651 0 0 .84-.27 2.75 1.022A9.607 9.607 0 0112 6.865c.85.004 1.705.115 2.504.337 1.909-1.292 2.747-1.022 2.747-1.022.546 1.376.202 2.399.097 2.651.64.701 1.029 1.595 1.029 2.685 0 3.825-2.339 4.675-4.566 4.922.359.309.678.92.678 1.855 0 1.334-.012 2.41-.012 2.737 0 .267.18.579.688.482C21.137 20.198 24 16.442 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd"/>
+                            </svg>
+                        </a>
                     </div>
                     <p class="text-sm text-gray-500 mb-4 project-tech">Java, Firebase Analytics, Node.js, REST APIs, Android</p>
                     <p class="text-base mb-4">Integrated a Java-based Android app with Firebase cloud functions, REST APIs, CleverTap SDK, and Firebase Analytics SDK for real-time uninstall tracking.</p>
@@ -482,7 +507,7 @@
                 <div class="card project-item">
                     <div class="flex items-center justify-between project-title-group">
                         <h3 class="text-2xl font-semibold text-primary">Cat vs Dog Classification with Transfer Learning</h3>
-                        <a href="https://github.com/yashkantharia/Data-Science-Projects/tree/main/Deep%20Learning/Cat%20vs%20Dog%20Classification%20with%20Transfer%20Learning" class="github-icon text-text-color-dark hover:text-primary transition-colors duration-300 ml-4">
+                        <a href="https://github.com/yashkantharia/Data-Science-Projects/tree/main/Deep%20Learning/Cat%20vs%20Dog%20Classification%20with%20Transfer%20Learning" target="_blank" class="github-icon text-text-color-dark hover:text-primary transition-colors duration-300 ml-4">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.867-.013-1.702-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.087 2.91.83.091-.647.35-1.087.636-1.332-2.22-.251-4.555-1.116-4.555-4.931 0-1.09.39-1.984 1.029-2.685-.103-.252-.446-1.275.097-2.651 0 0 .84-.27 2.75 1.022A9.607 9.607 0 0112 6.865c.85.004 1.705.115 2.504.337 1.909-1.292 2.747-1.022 2.747-1.022.546 1.376.202 2.399.097 2.651.64.701 1.029 1.595 1.029 2.685 0 3.825-2.339 4.675-4.566 4.922.359.309.678.92.678 1.855 0 1.334-.012 2.41-.012 2.737 0 .267.18.579.688.482C21.137 20.198 24 16.442 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd"/>
                             </svg>
@@ -573,8 +598,7 @@
             const body = document.body;
             const header = document.querySelector('header');
             const footer = document.querySelector('footer');
-            // Select links within the nav-container that have the class 'nav-links-item'
-            const navLinks = document.querySelectorAll('#nav-container .nav-links-item');
+            const allNavLinks = document.querySelectorAll('.nav-links-item');
 
             document.getElementById('current-year').textContent = new Date().getFullYear();
 
@@ -582,33 +606,49 @@
                 if (isDarkMode) {
                     body.classList.add('dark-mode');
                     body.classList.remove('light-mode');
-                    // Check if elements exist before accessing textContent
                     if (themeIconDesktop) themeIconDesktop.textContent = 'light_mode';
                     if (themeIconMobile) themeIconMobile.textContent = 'light_mode';
-                    header.style.backgroundColor = 'var(--surface-color-dark)';
+                    header.style.backgroundColor = 'transparent'; // Header transparent on desktop
                     footer.style.backgroundColor = 'var(--surface-color-dark)';
-                    // Apply base text color to nav links using Tailwind classes
-                    navLinks.forEach(link => {
-                        link.classList.remove('text-gray-700'); // Remove light mode specific color
-                        link.classList.add('text-gray-300');    // Add dark mode specific color
-                    });
+                    // Set background for nav-container in mobile view
+                    if (window.innerWidth < 768) { // Only apply if mobile view
+                        navContainer.style.backgroundColor = 'var(--surface-color-dark)';
+                    } else {
+                        navContainer.style.backgroundColor = 'transparent'; // Ensure transparent on desktop
+                    }
                     localStorage.setItem('theme', 'dark');
                 } else {
                     body.classList.add('light-mode');
                     body.classList.remove('dark-mode');
-                    // Check if elements exist before accessing textContent
                     if (themeIconDesktop) themeIconDesktop.textContent = 'dark_mode';
                     if (themeIconMobile) themeIconMobile.textContent = 'dark_mode';
-                    header.style.backgroundColor = 'var(--surface-color-light)';
+                    header.style.backgroundColor = 'transparent'; // Header transparent on desktop
                     footer.style.backgroundColor = 'var(--surface-color-light)';
-                    // Apply base text color to nav links using Tailwind classes
-                    navLinks.forEach(link => {
-                        link.classList.remove('text-gray-300'); // Remove dark mode specific color
-                        link.classList.add('text-gray-700');    // Add light mode specific color
-                    });
+                    // Set background for nav-container in mobile view
+                    if (window.innerWidth < 768) { // Only apply if mobile view
+                        navContainer.style.backgroundColor = 'var(--surface-color-light)';
+                    } else {
+                        navContainer.style.backgroundColor = 'transparent'; // Ensure transparent on desktop
+                    }
                     localStorage.setItem('theme', 'light');
                 }
+                // Apply base text color to nav links after theme change
+                applyNavLinkColors(isDarkMode);
             };
+
+            // Function to apply nav link colors based on theme
+            const applyNavLinkColors = (isDarkMode) => {
+                allNavLinks.forEach(link => {
+                    // Remove previous base colors and add new ones
+                    link.classList.remove('text-gray-300', 'text-gray-700');
+                    if (isDarkMode) {
+                        link.classList.add('text-gray-300'); // Base color for dark mode
+                    } else {
+                        link.classList.add('text-gray-700'); // Base color for light mode
+                    }
+                });
+            };
+
 
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'light') {
@@ -618,14 +658,14 @@
             }
 
             // Event listeners for theme toggles
-            if (themeToggleDesktop) { // Check if desktop toggle exists
+            if (themeToggleDesktop) {
                 themeToggleDesktop.addEventListener('click', () => {
                     const isDarkMode = body.classList.contains('dark-mode');
                     setTheme(!isDarkMode);
                 });
             }
 
-            if (themeToggleMobile) { // Check if mobile toggle exists
+            if (themeToggleMobile) {
                 themeToggleMobile.addEventListener('click', () => {
                     const isDarkMode = body.classList.contains('dark-mode');
                     setTheme(!isDarkMode);
@@ -633,28 +673,36 @@
             }
 
             // Toggle mobile menu
-            if (menuToggle) { // Check if menuToggle exists
+            if (menuToggle) {
                 menuToggle.addEventListener('click', () => {
                     navContainer.classList.toggle('hidden');
                     navContainer.classList.toggle('open');
                     if (navContainer.classList.contains('open')) {
                         hamburgerIcon.textContent = 'close';
+                        // Set background color when opening mobile menu
+                        setTheme(body.classList.contains('dark-mode')); // Re-apply theme to set background
+                        // Add border when opened
+                        if (body.classList.contains('dark-mode')) {
+                            navContainer.style.borderColor = 'var(--primary-color-dark)';
+                        } else {
+                            navContainer.style.borderColor = 'var(--primary-color-light)';
+                        }
                     } else {
                         hamburgerIcon.textContent = 'menu';
+                        navContainer.style.borderColor = 'transparent'; // Remove border when closed
                     }
                 });
             }
 
             // Close mobile menu when a nav link is clicked
-            navLinks.forEach(anchor => {
+            allNavLinks.forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
-                    // Only close if the menu is open and it's a mobile view
                     if (navContainer.classList.contains('open') && window.innerWidth < 768) {
                         navContainer.classList.remove('open');
                         navContainer.classList.add('hidden');
                         hamburgerIcon.textContent = 'menu';
+                        navContainer.style.borderColor = 'transparent'; // Remove border when closed by clicking link
                     }
-                    // Smooth scroll
                     e.preventDefault();
                     document.querySelector(this.getAttribute('href')).scrollIntoView({
                         behavior: 'smooth'
@@ -666,9 +714,11 @@
             window.addEventListener('resize', () => {
                 if (window.innerWidth >= 768) {
                     navContainer.classList.remove('hidden', 'open');
-                    if (hamburgerIcon) hamburgerIcon.textContent = 'menu'; // Reset hamburger icon
+                    // Ensure desktop background is always correct regardless of mobile state
+                    setTheme(body.classList.contains('dark-mode')); // Re-apply theme to set background
+                    if (hamburgerIcon) hamburgerIcon.textContent = 'menu';
+                    navContainer.style.borderColor = 'transparent'; // Ensure no border on desktop
                 } else {
-                    // Ensure it's hidden on mobile if resized from desktop
                     if (!navContainer.classList.contains('open')) {
                         navContainer.classList.add('hidden');
                     }
