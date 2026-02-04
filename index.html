@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yash Kantharia - Developer Portfolio</title>
+    <title>Yash Kantharia - Solutions Architect & Data Engineer</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
@@ -19,11 +19,7 @@
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
 
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
     apiKey: "AIzaSyBzh7xxwke8CBpHE3JbNIVEU_eVTGoN-S0",
     authDomain: "portfolio-6aee9.firebaseapp.com",
@@ -48,14 +44,14 @@
             --text-color-dark: #E0E0E0;
             --primary-color-dark: #BB86FC;
             --secondary-color-dark: #03DAC6;
-            --accent-color-dark: #BB86FC; /* Using primary for accent in dark */
+            --accent-color-dark: #BB86FC;
 
             --background-color-light: #FFFFFF;
             --surface-color-light: #F5F5F5;
             --text-color-light: #212121;
             --primary-color-light: #6200EE;
             --secondary-color-light: #03DAC6;
-            --accent-color-light: #6200EE; /* Using primary for accent in light */
+            --accent-color-light: #6200EE;
 
             --shadow-color-dark: rgba(0, 0, 0, 0.7);
             --shadow-color-light: rgba(0, 0, 0, 0.2);
@@ -94,17 +90,17 @@
         body.dark-mode .text-secondary {
             color: var(--secondary-color-dark);
         }
-        /* Highlight skills in dark mode */
+        
         body.dark-mode .skills-list li {
-            color: var(--primary-color-dark); /* Bullet point color */
+            color: var(--primary-color-dark);
         }
         body.dark-mode .skills-list li .skill-text,
-        body.dark-mode .highlight-skill { /* Added highlight-skill class */
-            color: var(--text-color-dark); /* Text color */
+        body.dark-mode .highlight-skill {
+            color: var(--text-color-dark);
         }
         body.dark-mode .highlight-skill {
-            font-weight: 600; /* Make highlighted skills bolder */
-            color: var(--primary-color-dark); /* Apply primary color to highlighted skills */
+            font-weight: 600;
+            color: var(--primary-color-dark);
         }
 
 
@@ -136,29 +132,28 @@
         body.light-mode .text-secondary {
             color: var(--secondary-color-light);
         }
-        /* Highlight skills in light mode */
+        
         body.light-mode .skills-list li {
-            color: var(--primary-color-light); /* Bullet point color */
+            color: var(--primary-color-light);
         }
         body.light-mode .skills-list li .skill-text,
-        body.light-mode .highlight-skill { /* Added highlight-skill class */
-            color: var(--text-color-light); /* Text color */
+        body.light-mode .highlight-skill {
+            color: var(--text-color-light);
         }
         body.light-mode .highlight-skill {
-            font-weight: 600; /* Make highlighted skills bolder */
-            color: var(--primary-color-light); /* Apply primary color to highlighted skills */
+            font-weight: 600;
+            color: var(--primary-color-light);
         }
 
-        /* Specific styles for theme toggle and hamburger buttons in light mode */
         body.light-mode #theme-toggle-mobile,
         body.light-mode #menu-toggle,
         body.light-mode #theme-toggle-desktop {
-            background-color: #000000; /* Black background for buttons in light mode */
+            background-color: #000000;
         }
         body.light-mode #theme-icon-mobile,
         body.light-mode #hamburger-icon,
         body.light-mode #theme-icon-desktop {
-            color: #FFFFFF; /* White icon color in light mode */
+            color: #FFFFFF;
         }
 
 
@@ -189,94 +184,91 @@
             transform: translateY(0);
         }
 
-        /* Scrollbar Styling for better aesthetics */
+        /* Scrollbar Styling */
         ::-webkit-scrollbar {
             width: 8px;
         }
 
         ::-webkit-scrollbar-track {
-            background: var(--surface-color-dark); /* Dark track in dark mode */
+            background: var(--surface-color-dark);
             border-radius: 10px;
         }
 
         body.light-mode ::-webkit-scrollbar-track {
-            background: var(--surface-color-light); /* Light track in light mode */
+            background: var(--surface-color-light);
         }
 
         ::-webkit-scrollbar-thumb {
-            background: var(--primary-color-dark); /* Primary color thumb in dark mode */
+            background: var(--primary-color-dark);
             border-radius: 10px;
         }
 
         body.light-mode ::-webkit-scrollbar-thumb {
-            background: var(--primary-color-light); /* Primary color thumb in light mode */
+            background: var(--primary-color-light);
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--secondary-color-dark); /* Secondary color on hover in dark mode */
+            background: var(--secondary-color-dark);
         }
 
         body.light-mode ::-webkit-scrollbar-thumb:hover {
-            background: var(--secondary-color-light); /* Secondary color on hover in light mode */
+            background: var(--secondary-color-light);
         }
 
-        /* Responsive adjustments for smaller screens */
-        /* Custom styles for header on small screens */
+        /* Responsive adjustments */
         @media (max-width: 767px) {
             .header {
-                flex-direction: row; /* Keep row for name and toggle */
+                flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
                 padding: 1rem;
             }
             .nav-container {
                 position: absolute;
-                top: 100%; /* Position below header */
+                top: 100%;
                 left: 0;
                 width: 100%;
-                /* Background color is handled by JS for mobile menu */
                 box-shadow: 0 4px 8px var(--shadow-color-dark);
                 flex-direction: column;
                 align-items: center;
                 padding: 1rem 0;
-                border-radius: 0 0 12px 12px; /* Rounded bottom corners */
-                transition: transform 0.3s ease-out, background-color 0.3s ease, border-color 0.3s ease; /* Added border-color transition */
-                transform: translateY(-100%); /* Start off-screen */
+                border-radius: 0 0 12px 12px;
+                transition: transform 0.3s ease-out, background-color 0.3s ease, border-color 0.3s ease;
+                transform: translateY(-100%);
                 opacity: 0;
-                pointer-events: none; /* Disable interaction when hidden */
-                border: 2px solid transparent; /* Default transparent border */
+                pointer-events: none;
+                border: 2px solid transparent;
             }
             .nav-container.open {
-                transform: translateY(0); /* Slide in */
+                transform: translateY(0);
                 opacity: 1;
-                pointer-events: all; /* Enable interaction */
-                border-color: var(--primary-color-dark); /* Default border color for dark mode */
+                pointer-events: all;
+                border-color: var(--primary-color-dark);
             }
             body.light-mode .nav-container.open {
-                border-color: var(--primary-color-light); /* Light mode border color */
+                border-color: var(--primary-color-light);
             }
-            .nav-links-item { /* Target individual nav links */
+            .nav-links-item {
                 margin: 0.5rem 0;
                 width: fit-content;
             }
             .menu-toggle-group {
                 display: flex;
                 align-items: center;
-                gap: 0.5rem; /* Space between toggle and hamburger */
+                gap: 0.5rem;
             }
         }
 
         /* Nav bar bottom border */
         .header {
-            /* Set background to surface color, not transparent */
             background-color: var(--surface-color-dark); 
-            border-bottom: 2px solid var(--primary-color-dark); /* Default dark mode border */
+            border-bottom: 2px solid var(--primary-color-dark);
             transition: border-bottom-color 0.3s ease, background-color 0.3s ease;
         }
 
         body.light-mode .header {
-            background-color: var(--surface-color-light); /* Light mode header background */
-            border-bottom-color: var(--primary-color-light); /* Light mode border */
+            background-color: var(--surface-color-light);
+            border-bottom-color: var(--primary-color-light);
         }
     </style>
 </head>
@@ -319,28 +311,19 @@
                 </div>
                 <div class="hero-text max-w-2xl">
                     <h2 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">Hi, I'm <span class="text-primary">Yash Kantharia</span></h2>
-                    <p class="text-xl md:text-2xl font-medium mb-6">A Data Wizard and Software Engineer</p>
+                    <p class="text-xl md:text-2xl font-medium mb-6">Solutions Architect & Data Engineer</p>
                     <p class="text-lg leading-relaxed">
-                        Hi, I'm Yash — a results-driven <span class="highlight-skill">Data Professional</span> with a passion for transforming raw data into actionable insights and building scalable, intelligent solutions.
+                        Hi, I'm Yash — a results-driven <span class="highlight-skill">Solutions Architect</span> and <span class="highlight-skill">Data Engineer</span> expert in bridging product engineering and customer success.
                     </p>
 
                     <p class="text-lg leading-relaxed mt-4">
-                        With a unique blend of experience across <span class="highlight-skill">Data Analytics, Data Engineering, Data Science, Solutions Engineering, Customer Success, and Software Development</span>, I bring an end-to-end understanding of the data lifecycle — from data wrangling and modeling to dashboard development, machine learning, and pre-sales strategy.
+                        I specialize in building production-grade data pipelines, architecting scalable cloud infrastructure, and designing AI-powered integrations. With deep technical knowledge in <span class="highlight-skill">Python, SQL, AWS, and AI/LLMs</span>, I function as a trusted technical advisor, capable of solo-architecting end-to-end solutions that drive revenue retention and account expansion.
                     </p>
                     <p class="text-lg leading-relaxed mt-4">
 
-                        My technical toolkit includes <span class="highlight-skill">Python</span>,<span class="highlight-skill"> SQL</span>, <span class="highlight-skill">Java</span>, <span class="highlight-skill">NumPy</span>, <span class="highlight-skill">Pandas</span>, <span class="highlight-skill">Cloud</span>, <span class="highlight-skill">APIs</span>, <span class="highlight-skill">Android</span>, and <span class="highlight-skill">AI</span>, enabling me to build robust data pipelines that optimize performance and reduce operational costs. I'm skilled at designing intuitive dashboards that demystify complex data, empowering stakeholders to make confident, data-informed decisions.
+                        From optimizing query execution times by 45% to securing six-figure enterprise deals through custom integrations, I combine engineering rigor with business strategy to solve complex data challenges.
                     </p>
-                    <p class="text-lg leading-relaxed mt-4">
-                        Specializing in <span class="highlight-skill">Ad Tech</span>, <span class="highlight-skill">MarTech</span>, and <span class="highlight-skill">Customer Success</span>, I’ve led high-impact initiatives such as customer churn prediction, AI-powered chatbot development, and advanced forecasting models. My work often extends into <span class="highlight-skill">technical pre-sales</span>, where I translate client needs into tailored solutions that drive adoption and close deals.
-                    </p>
-
-                    <p class="text-lg leading-relaxed mt-4">
-                        Whether collaborating with engineering teams or advising enterprise clients, I bring a balance of technical acumen, business insight, and a genuine enthusiasm for solving tough problems through data.
-                    </p>
-                    <p class="text-lg leading-relaxed mt-4">
-                        I am eager to join a forward-thinking team that values innovation and sees data as the fuel for strategic growth. Available to start immediately!
-                    </p>
+                    
                     <div class="mt-8 flex flex-wrap justify-center md:justify-start gap-4">
                         <a href="./assets/Yash_Kantharia_Resume.pdf" download="Yash_Kantharia_Resume.pdf" class="btn-primary" id="resume_button">
                             Download Resume <span class="material-icons ml-2">download</span>
@@ -357,62 +340,63 @@
             <h2 class="text-4xl font-bold text-center mb-12">My <span class="text-primary">Skills</span></h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <div class="card">
-                    <h3 class="text-2xl font-semibold mb-4 text-primary">Programming & Databases</h3>
+                    <h3 class="text-2xl font-semibold mb-4 text-primary">Programming</h3>
                     <ul class="list-disc list-inside text-lg space-y-2 skills-list">
-                        <li><span class="skill-text">Python (Pandas, NumPy, PySpark)</span></li>
-                        <li><span class="skill-text">SQL (PostgreSQL, Dremio, Snowflake, BigQuery)</span></li>
-                        <li><span class="skill-text">Java, JavaScript, C, C++</span></li>
-                        <li><span class="skill-text">MongoDB</span></li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3 class="text-2xl font-semibold mb-4 text-primary">Data Analysis & Visualization</h3>
-                    <ul class="list-disc list-inside text-lg space-y-2 skills-list">
-                        <li><span class="skill-text">Tableau, Power BI, Excel (Advanced)</span></li>
-                        <li><span class="skill-text">Google Analytics, Statistical Analysis</span></li>
-                        <li><span class="skill-text">Predictive Modeling, A/B Testing, Regression</span></li>
-                        <li><span class="skill-text">KPI Modeling </span></li>
-                        <li><span class="skill-text">Matplotlib, Seaborn, Plotly</span></li>
+                        <li><span class="skill-text">Python (Advanced)</span></li>
+                        <li><span class="skill-text">SQL (Advanced Querying & Optimization)</span></li>
+                        <li><span class="skill-text">Java, JavaScript, TypeScript</span></li>
+                        <li><span class="skill-text">C, C++</span></li>
+                        <li><span class="skill-text">HTML, CSS, Shell Scripting</span></li>
                     </ul>
                 </div>
                 <div class="card">
                     <h3 class="text-2xl font-semibold mb-4 text-primary">Data Engineering</h3>
                     <ul class="list-disc list-inside text-lg space-y-2 skills-list">
-                        <li><span class="skill-text">ETL, Data Modeling, Data Mining, Data Warehousing</span></li>
-                        <li><span class="skill-text">Airflow, Databricks, StreamLit, Flask, GitHub</span></li>
-                        <li><span class="skill-text">DBT, Kubernetes, Docker</span></li>
-                        <li><span class="skill-text">IAM, GDPR, CCPA, HIPAA</span></li>
-                        <li><span class="skill-text">RESTful APIs, OAuth, JWT, SAML, Webhooks, Event-Driven Architecture, SDK Integration & Debugging, Postman, Swagger</span></li>
+                        <li><span class="skill-text">Snowflake, BigQuery, Databricks</span></li>
+                        <li><span class="skill-text">Airflow, dbt, ETL/ELT Pipelines</span></li>
+                        <li><span class="skill-text">Dremio, Kafka, PySpark</span></li>
+                        <li><span class="skill-text">Data Modeling (Star Schemas)</span></li>
+                        <li><span class="skill-text">Tableau, Power BI, Looker</span></li>
                     </ul>
                 </div>
                 <div class="card">
-                    <h3 class="text-2xl font-semibold mb-4 text-primary">Machine Learning & AI</h3>
+                    <h3 class="text-2xl font-semibold mb-4 text-primary">AI & Machine Learning</h3>
                     <ul class="list-disc list-inside text-lg space-y-2 skills-list">
-                        <li><span class="skill-text">TensorFlow, PyTorch, Keras, NLP</span></li>
-                        <li><span class="skill-text">LLM Fine-Tuning, ChatBots, Classification, Regression, Clustering</span></li>
-                        <li><span class="skill-text">Time Series Forecasting, GPT, Gemini, Llama, BERT, TFIDF, Word2Vec, Doc2Vec, RAG, GAN, Vertex AI</span></li>
-                        <li><span class="skill-text">Beautiful Soup, Selenium</span></li>
+                        <li><span class="skill-text">LLM Fine-Tuning (Llama, Gemini)</span></li>
+                        <li><span class="skill-text">RAG, Vector Databases (ChromaDB)</span></li>
+                        <li><span class="skill-text">LangChain, NLP, Semantic Search</span></li>
+                        <li><span class="skill-text">TensorFlow, PyTorch, Scikit-learn</span></li>
+                        <li><span class="skill-text">Regression, Classification, Clustering</span></li>
                     </ul>
                 </div>
                 <div class="card">
-                    <h3 class="text-2xl font-semibold mb-4 text-primary">Cloud Platforms</h3>
+                    <h3 class="text-2xl font-semibold mb-4 text-primary">Cloud & Infrastructure</h3>
                     <ul class="list-disc list-inside text-lg space-y-2 skills-list">
-                        <li><span class="skill-text">AWS (RDS, EC2, Lambda, S3, IAM, Athena, DynamoDB, SageMaker, Kinesis, Firehose)</span></li>
-                        <li><span class="skill-text">GCP (Vertex AI, AI studio, BiQuery, BigTable, Dataflow, Pub/Sub) </span></li>
-                        <li><span class="skill-text">Azure (Blob Storage, Logic Apps, Data Factory, DataBricks, Data Explorer, Microsoft Fabric) </span></li>
-                        <li><span class="skill-text">Firebase (Push notifications, Crashlytics, App Hosting, Cloud Functions, A/B Testing, Google Analytics, Remote Config) </span></li>
+                        <li><span class="skill-text">AWS (Lambda, EC2, S3, RDS, IAM)</span></li>
+                        <li><span class="skill-text">GCP (Vertex AI, BigQuery, Cloud Functions)</span></li>
+                        <li><span class="skill-text">Azure (Blob Storage, Data Factory)</span></li>
+                        <li><span class="skill-text">Docker, Kubernetes</span></li>
+                        <li><span class="skill-text">Terraform, CI/CD, Git</span></li>
                     </ul>
                 </div>
                 <div class="card">
-                    <h3 class="text-2xl font-semibold mb-4 text-primary">Customer Success Skills</h3>
+                    <h3 class="text-2xl font-semibold mb-4 text-primary">Web & Integration</h3>
                     <ul class="list-disc list-inside text-lg space-y-2 skills-list">
-                        <li><span class="skill-text">Stakeholder Management, Requirements Gathering</span></li>
-                        <li><span class="skill-text">Data Storytelling, Presentation Skills, JIRA</span></li>
-                        <li><span class="skill-text">Onboarding and client training</span></li>
-                        <li><span class="skill-text">Mitigating escaltions</span></li>
-                        <li><span class="skill-text">Cross-functional Collaboration</span></li>
-                        <li><span class="skill-text">Pre-Sales Solutions</span></li>
-                        
+                        <li><span class="skill-text">RESTful APIs, Webhooks, GraphQL</span></li>
+                        <li><span class="skill-text">OAuth 2.0, JWT, SAML, SSO</span></li>
+                        <li><span class="skill-text">Flask, FastAPI, Streamlit</span></li>
+                        <li><span class="skill-text">SDK Integration (Android/Web)</span></li>
+                        <li><span class="skill-text">Selenium, BeautifulSoup</span></li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 class="text-2xl font-semibold mb-4 text-primary">Customer Success</h3>
+                    <ul class="list-disc list-inside text-lg space-y-2 skills-list">
+                        <li><span class="skill-text">Technical Account Management</span></li>
+                        <li><span class="skill-text">Solution Selling & Pre-Sales</span></li>
+                        <li><span class="skill-text">Churn Reduction & Root Cause Analysis</span></li>
+                        <li><span class="skill-text">CRM Integration (Totango, Salesforce)</span></li>
+                        <li><span class="skill-text">GDPR, CCPA, IAM Compliance</span></li>
                     </ul>
                 </div>
             </div>
@@ -422,34 +406,35 @@
             <h2 class="text-4xl font-bold text-center mb-12">My <span class="text-primary">Experience</span></h2>
             <div class="space-y-8 max-w-4xl mx-auto">
                 <div class="card experience-item">
-                    <h3 class="text-2xl font-semibold text-primary">Customer Success Manager, Data Engineer Academy</h3>
+                    <h3 class="text-2xl font-semibold text-primary">Data Engineer, Data Engineer Academy</h3>
                     <p class="text-lg font-medium">New York, NY | November 2024 - Present</p>
                     <ul class="list-disc list-inside text-base mt-4 space-y-2">
-                        <li>Mentored over 180+ aspiring data professionals in Python, SQL, AWS, Azure, and ML, contributing to a 90% success rate in transitioning to data-focused roles.</li>
-                        <li>Developed comprehensive training modules for data visualization (Tableau, Power BI) and data modeling, enhancing student understanding of complex data concepts by an average of 60% based on post-training assessments.</li>
-                        <li>Championed customer success initiatives, resulting in a 95% retention and 20% improvement in student satisfaction scores through support and resource provision.</li>
+                        <li><strong>Curriculum Impact:</strong> Developed and taught modules on Data Modeling and dbt, resulting in a 90% student project completion rate.</li>
+                        <li><strong>SQL Optimization:</strong> Led coaching sessions on performance tuning (partitioning, indexing) that helped students reduce query execution costs by 40%.</li>
+                        <li><strong>Pipeline Architecture:</strong> Standardized best practices for ELT pipelines and GitHub workflows, reducing debugging time by 30%.</li>
+                        <li><strong>Systems Integration:</strong> Engineered automated data synchronization workflows by integrating REST APIs for Slack, Totango, and Close CRM.</li>
                     </ul>
                 </div>
 
                 <div class="card experience-item">
                     <h3 class="text-2xl font-semibold text-primary">Data Scientist, Filmy AI</h3>
-                    <p class="text-lg font-medium">New York, NY | August 2024 - May 2024</p>
+                    <p class="text-lg font-medium">New York, NY | August 2024 - December 2025</p>
                     <ul class="list-disc list-inside text-base mt-4 space-y-2">
-                        <li>Developing a job-to-user matching system using context vectors with Doc2Vec, aiming to improve job search accuracy by 40%.</li>
-                        <li>Fabricated an LLM-powered chatbot using Python, StreamLit, and Gemini API to assist with career guidance and tailoring resumes.</li>
-                        <li>Architected and managed cloud infrastructure on AWS, leveraging RDS, EC2, Lambda, S3, and IAM to deploy a scalable website.</li>
-                        <li>Configured custom domains in DNS with SSL certificates to secure websites via HTTPS, ensuring best practices for web security.</li>
+                        <li><strong>Solo Cloud Architecture:</strong> Operated as the founding engineer, architecting the end-to-end cloud infrastructure on AWS (EC2, Lambda, RDS, S3) ensuring 99.9% uptime.</li>
+                        <li><strong>AI Product Development:</strong> Designed a job-matching system using RAG and context vectors (Doc2Vec/Gemma), improving search relevance and accuracy by 40%.</li>
+                        <li><strong>AI Agents:</strong> Implemented an LLM-powered Chatbot (Gemini API + Streamlit) to provide career advice and resume reviews, reducing support load by 30%.</li>
+                        <li><strong>Technical Leadership:</strong> Led a team of 5 AI engineers, establishing best practices for NLP research and vector database implementation.</li>
                     </ul>
                 </div>
 
                 <div class="card experience-item">
-                    <h3 class="text-2xl font-semibold text-primary">Senior Customer Success Architect / Data Engineer, Fractal Analytics</h3>
+                    <h3 class="text-2xl font-semibold text-primary">Senior Customer Solutions Architect / Data Engineer, Fractal</h3>
                     <p class="text-lg font-medium">Mumbai, India | August 2021 - August 2022</p>
                     <ul class="list-disc list-inside text-base mt-4 space-y-2">
-                        <li>Design and implemented robust ETL pipelines using Python, SQL, Azure, Dremio, and Airflow to integrate client data (2-12 GB) with Fractal's analytics platform 'Crux Intelligence', adhering to strict data security and automation policies.</li>
-                        <li>Authored Python scripts (Pandas, NumPy) for data transformation, validation, and automation, ensuring 100% data accuracy for critical sales and performance reports.</li>
-                        <li>Engineered ETL pipelines using SQL, Python, AWS S3, and Databricks, connecting disparate data sources (1-4 GB daily) from vendors to track sales, inventory, and product placement across markets and sellers.</li>
-                        <li>Led technical pre-sales efforts, designing tailored solutions that addressed business needs, demonstrated value through POCs, and secured a $120K deal and a 3-year contract extension for two clients.</li>
+                        <li><strong>Query Performance:</strong> Redesigned data models for a major CPG client, transitioning legacy structures to Star Schemas and reducing dashboard refresh times by 45%.</li>
+                        <li><strong>Revenue Impact:</strong> Leveraged deep data insights to identify gaps in client workflows, leading to a custom solution proposal that secured a $120K upsell deal.</li>
+                        <li><strong>Pipeline Reliability:</strong> Orchestrated Airflow DAGs for ETL/ELT workflows across Azure, ensuring 100% SLA adherence for executive reporting.</li>
+                        <li><strong>Data Adoption:</strong> Built the semantic layer for Analytical Dashboards (Finance/CPG), boosting active platform usage from 60% to 97%.</li>
                     </ul>
                 </div>
 
@@ -457,11 +442,10 @@
                     <h3 class="text-2xl font-semibold text-primary">Senior Customer Success Engineer, CleverTap</h3>
                     <p class="text-lg font-medium">Mumbai, India | July 2019 - August 2021</p>
                     <ul class="list-disc list-inside text-base mt-4 space-y-2">
-                        <li>Managed relationships and provided technical and analytical support for a portfolio of over 200 global clients, achieving a client satisfaction rate of over 95%.</li>
-                        <li>Spearheaded the development of an innovative real-time uninstall tracking feature using Java (Android Studio), Firebase, REST APIs, Node.js and custom cloud functions, which improved uninstall detection accuracy for Android applications by 100%.</li>
-                        <li>Devised Python scripts to perform data integrity checks and analysis, reducing data discrepancy resolution time by an average of 40%.</li>
-                        <li>Served as a Subject Matter Expert (SME) for Data Protection Laws (GDPR and CCPA) and Mobile Marketing channels.</li>
-                        <li>Supervised and mentored a team of seven, improving overall team productivity by 30%.</li>
+                        <li><strong>Innovation:</strong> Architected a POC using AWS Lambda and Firebase to solve uninstall tracking, which was productized to become an industry-first feature.</li>
+                        <li><strong>Revenue Generation:</strong> Partnered with Sales Engineering to close a $150K deal by architecting a custom SDK integration that resolved critical Unity compatibility issues.</li>
+                        <li><strong>Data Integrity:</strong> Automated root cause analysis using Python scripts and SQL, reducing the average Time-to-Resolution (TTR) for data tickets by 20%.</li>
+                        <li><strong>Enterprise Management:</strong> Managed 120+ global accounts, maintaining 97% CSAT by functioning as a strategic technical advisor.</li>
                     </ul>
                 </div>
             </div>
@@ -472,18 +456,44 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <div class="card project-item">
                     <div class="flex items-center justify-between project-title-group">
-                        <h3 class="text-2xl font-semibold text-primary">Fine-tuning LLM for English-to-French Translation</h3>
+                        <h3 class="text-2xl font-semibold text-primary">Multi-Agent AI Browser</h3>
                     </div>
-                    <p class="text-sm text-gray-500 mb-4 project-tech">Python, Sloth, Gemma 2b, PyTorch, Seq2Seq, LORA</p>
-                    <p class="text-base mb-4">Enhanced English to French sentence translation quality using the Gemma 2b Large Language Model with Unsloth, outperforming a baseline Seq2Seq model (PyTorch).</p>
+                    <p class="text-sm text-gray-500 mb-4 project-tech">Python, Electron, Gemini, Claude, Ollama, Selenium</p>
+                    <p class="text-base mb-4">Built a privacy-first browser using AI-assisted prototyping. Implemented a local multi-agent architecture with on-device models (Llama 3, Qwen2.5) for vision and code generation, ensuring zero data exfiltration.</p>
                 </div>
+
+                <div class="card project-item">
+                    <div class="flex items-center justify-between project-title-group">
+                        <h3 class="text-2xl font-semibold text-primary">Stella Chatbot</h3>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-4 project-tech">Python, Google AI Studio, Vertex AI, Streamlit</p>
+                    <p class="text-base mb-4">Fabricated an LLM-powered chatbot using Python, Streamlit, and Gemini API to assist users with career guidance and tailoring resumes.</p>
+                </div>
+
+                <div class="card project-item">
+                    <div class="flex items-center justify-between project-title-group">
+                        <h3 class="text-2xl font-semibold text-primary">Real-time Uninstall Tracking</h3>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-4 project-tech">Java, Firebase Analytics, Node.js, REST APIs, Android</p>
+                    <p class="text-base mb-4">Integrated a Java-based Android app with Firebase Cloud Functions and CleverTap SDK for real-time uninstall tracking, achieving nearly 100% accuracy.</p>
+                </div>
+
+                <div class="card project-item">
+                    <div class="flex items-center justify-between project-title-group">
+                        <h3 class="text-2xl font-semibold text-primary">LLM Fine-tuning (English-to-French)</h3>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-4 project-tech">Python, Unsloth, Gemma 2b, PyTorch, LoRA</p>
+                    <p class="text-base mb-4">Enhanced translation quality using the Gemma 2b Large Language Model with Unsloth, achieving a 40% improvement in BLEU score over a baseline Seq2Seq model.</p>
+                </div>
+
                 <div class="card project-item">
                     <div class="flex items-center justify-between project-title-group">
                         <h3 class="text-2xl font-semibold text-primary">Data Pipeline Automation</h3>
                     </div>
-                    <p class="text-sm text-gray-500 mb-4 project-tech">Python, SQL, Azure Blob Storage, REST APIs</p>
-                    <p class="text-base mb-4">Implemented Python scripts to automate periodic data extraction from a private network's SQL database, executing complex calculations, formatting data, and uploading to Azure Blob Storage.</p>
+                    <p class="text-sm text-gray-500 mb-4 project-tech">Python, SQL, Azure Blob Storage, Dremio</p>
+                    <p class="text-base mb-4">Implemented Python scripts to automate periodic data extraction from SQL databases, formatting data to Parquet, and triggering API refreshes in Dremio.</p>
                 </div>
+
                 <div class="card project-item">
                     <div class="flex items-center justify-between project-title-group">
                         <h3 class="text-2xl font-semibold text-primary">WebScraper API</h3>
@@ -493,39 +503,8 @@
                             </svg>
                         </a>
                     </div>
-                    <p class="text-sm text-gray-500 mb-4 project-tech">Python, Selenium, Flask, BeautifulSoup, HTML, DOM, Pandas</p>
-                    <p class="text-base mb-4">Built a Flask API with Selenium, Beautiful Soup, Gensim, and basic authentication for capturing website metadata, icons, contact details, and a summary into a CSV file.</p>
-                </div>
-                <div class="card project-item">
-                    <div class="flex items-center justify-between project-title-group">
-                        <h3 class="text-2xl font-semibold text-primary">Real-time Uninstall Tracking for Android Applications</h3>
-                    </div>
-                    <p class="text-sm text-gray-500 mb-4 project-tech">Java, Firebase Analytics, Node.js, REST APIs, Android</p>
-                    <p class="text-base mb-4">Integrated a Java-based Android app with Firebase cloud functions, REST APIs, CleverTap SDK, and Firebase Analytics SDK for real-time uninstall tracking.</p>
-                </div>
-                <div class="card project-item">
-                    <div class="flex items-center justify-between project-title-group">
-                        <h3 class="text-2xl font-semibold text-primary">Cat vs Dog Classification with Transfer Learning</h3>
-                        <a href="https://github.com/yashkantharia/Data-Science-Projects/tree/main/Deep%20Learning/Cat%20vs%20Dog%20Classification%20with%20Transfer%20Learning" target="_blank" class="github-icon text-text-color-dark hover:text-primary transition-colors duration-300 ml-4" onclick="gtag('event', 'GitHub Click', { 'event_category': 'Project', 'event_label': 'Cat vs Dog Classification with Transfer Learning' });">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.867-.013-1.702-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.087 2.91.83.091-.647.35-1.087.636-1.332-2.22-.251-4.555-1.116-4.555-4.931 0-1.09.39-1.984 1.029-2.685-.103-.252-.446-1.275.097-2.651 0 0 .84-.27 2.75 1.022A9.607 9.607 0 0112 6.865c.85.004 1.705.115 2.504.337 1.909-1.292 2.747-1.022 2.747-1.022.546 1.376.202 2.399.097 2.651.64.701 1.029 1.595 1.029 2.685 0 3.825-2.339 4.675-4.566 4.922.359.309.678.92.678 1.855 0 1.334-.012 2.41-.012 2.737 0 .267.18.579.688.482C21.137 20.198 24 16.442 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd"/>
-                            </svg>
-                        </a>
-                    </div>
-                    <p class="text-sm text-gray-500 mb-4 project-tech">Python, Pandas, Keras, PyTorch, MobileNetV2, Tensorflow, Seaborn, matplotlib</p>
-                    <p class="text-base mb-4">Developed an image classification model using transfer learning with MobileNetV2, comparing the performance of TensorFlow (Keras) and PyTorch frameworks.</p>
-                </div>
-                <div class="card project-item">
-                    <div class="flex items-center justify-between project-title-group">
-                        <h3 class="text-2xl font-semibold text-primary">Power Consumption Prediction and Analysis for New York</h3>
-                        <a href="https://github.com/yashkantharia/Data-Science-Projects/tree/main/Time%20Series%20Forecasting/New%20York%20Power%20Consumption" target="_blank" class="github-icon text-text-color-dark hover:text-primary transition-colors duration-300 ml-4" onclick="gtag('event', 'GitHub Click', { 'event_category': 'Project', 'event_label': 'Power Consumption Prediction and Analysis for New York' });">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.867-.013-1.702-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.087 2.91.83.091-.647.35-1.087.636-1.332-2.22-.251-4.555-1.116-4.555-4.931 0-1.09.39-1.984 1.029-2.685-.103-.252-.446-1.275.097-2.651 0 0 .84-.27 2.75 1.022A9.607 9.607 0 0112 6.865c.85.004 1.705.115 2.504.337 1.909-1.292 2.747-1.022 2.747-1.022.546 1.376.202 2.399.097 2.651.64.701 1.029 1.595 1.029 2.685 0 3.825-2.339 4.675-4.566 4.922.359.309.678.92.678 1.855 0 1.334-.012 2.41-.012 2.737 0 .267.18.579.688.482C21.137 20.198 24 16.442 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd"/>
-                            </svg>
-                        </a>
-                    </div>
-                    <p class="text-sm text-gray-500 mb-4 project-tech">Python, Pandas, Numpy, Scikit-learn, FBProphet, Seaborn</p>
-                    <p class="text-base mb-4">Executed a comprehensive time series analysis of power consumption data for New York City boroughs, identifying critical trends and seasonal patterns.</p>
+                    <p class="text-sm text-gray-500 mb-4 project-tech">Python, Selenium, Flask, BeautifulSoup</p>
+                    <p class="text-base mb-4">Built a Flask API with Selenium and BeautifulSoup to capture website metadata, icons, contact details, and summaries into CSV files.</p>
                 </div>
             </div>
         </section>
@@ -572,7 +551,7 @@
                             <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.867-.013-1.702-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.087 2.91.83.091-.647.35-1.087.636-1.332-2.22-.251-4.555-1.116-4.555-4.931 0-1.09.39-1.984 1.029-2.685-.103-.252-.446-1.275.097-2.651 0 0 .84-.27 2.75 1.022A9.607 9.607 0 0112 6.865c.85.004 1.705.115 2.504.337 1.909-1.292 2.747-1.022 2.747-1.022.546 1.376.202 2.399.097 2.651.64.701 1.029 1.595 1.029 2.685 0 3.825-2.339 4.675-4.566 4.922.359.309.678.92.678 1.855 0 1.334-.012 2.41-.012 2.737 0 .267.18.579.688.482C21.137 20.198 24 16.442 24 12.017 24 6.484 19.522 2 14 2h-2z" clip-rule="evenodd"/>
                         </svg>
                     </a>
-                    <a href="mailto:yashkantharia27@gmail.com" class="text-primary hover:text-secondary transition-colors duration-300">
+                    <a href="mailto:ykantharia27@gmail.com" class="text-primary hover:text-secondary transition-colors duration-300">
                         <span class="material-icons w-8 h-8">email</span>
                     </a>
                 </div>
@@ -607,13 +586,12 @@
                     body.classList.remove('light-mode');
                     if (themeIconDesktop) themeIconDesktop.textContent = 'light_mode';
                     if (themeIconMobile) themeIconMobile.textContent = 'light_mode';
-                    header.style.backgroundColor = 'var(--surface-color-dark)'; // Set header background to surface color
+                    header.style.backgroundColor = 'var(--surface-color-dark)';
                     footer.style.backgroundColor = 'var(--surface-color-dark)';
-                    // Set background for nav-container in mobile view
-                    if (window.innerWidth < 768) { // Only apply if mobile view
+                    if (window.innerWidth < 768) {
                         navContainer.style.backgroundColor = 'var(--surface-color-dark)';
                     } else {
-                        navContainer.style.backgroundColor = 'transparent'; // Ensure transparent on desktop
+                        navContainer.style.backgroundColor = 'transparent';
                     }
                     localStorage.setItem('theme', 'dark');
                 } else {
@@ -621,33 +599,28 @@
                     body.classList.remove('dark-mode');
                     if (themeIconDesktop) themeIconDesktop.textContent = 'dark_mode';
                     if (themeIconMobile) themeIconMobile.textContent = 'dark_mode';
-                    header.style.backgroundColor = 'var(--surface-color-light)'; // Set header background to surface color
+                    header.style.backgroundColor = 'var(--surface-color-light)';
                     footer.style.backgroundColor = 'var(--surface-color-light)';
-                    // Set background for nav-container in mobile view
-                    if (window.innerWidth < 768) { // Only apply if mobile view
+                    if (window.innerWidth < 768) {
                         navContainer.style.backgroundColor = 'var(--surface-color-light)';
                     } else {
-                        navContainer.style.backgroundColor = 'transparent'; // Ensure transparent on desktop
+                        navContainer.style.backgroundColor = 'transparent';
                     }
                     localStorage.setItem('theme', 'light');
                 }
-                // Apply base text color to nav links after theme change
                 applyNavLinkColors(isDarkMode);
             };
 
-            // Function to apply nav link colors based on theme
             const applyNavLinkColors = (isDarkMode) => {
                 allNavLinks.forEach(link => {
-                    // Remove previous base colors and add new ones
                     link.classList.remove('text-gray-300', 'text-gray-700');
                     if (isDarkMode) {
-                        link.classList.add('text-gray-300'); // Base color for dark mode
+                        link.classList.add('text-gray-300');
                     } else {
-                        link.classList.add('text-gray-700'); // Base color for light mode
+                        link.classList.add('text-gray-700');
                     }
                 });
             };
-
 
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'light') {
@@ -656,7 +629,6 @@
                 setTheme(true);
             }
 
-            // Event listeners for theme toggles
             if (themeToggleDesktop) {
                 themeToggleDesktop.addEventListener('click', () => {
                     const isDarkMode = body.classList.contains('dark-mode');
@@ -671,16 +643,13 @@
                 });
             }
 
-            // Toggle mobile menu
             if (menuToggle) {
                 menuToggle.addEventListener('click', () => {
                     navContainer.classList.toggle('hidden');
                     navContainer.classList.toggle('open');
                     if (navContainer.classList.contains('open')) {
                         hamburgerIcon.textContent = 'close';
-                        // Set background color when opening mobile menu
-                        setTheme(body.classList.contains('dark-mode')); // Re-apply theme to set background
-                        // Add border when opened
+                        setTheme(body.classList.contains('dark-mode'));
                         if (body.classList.contains('dark-mode')) {
                             navContainer.style.borderColor = 'var(--primary-color-dark)';
                         } else {
@@ -688,19 +657,18 @@
                         }
                     } else {
                         hamburgerIcon.textContent = 'menu';
-                        navContainer.style.borderColor = 'transparent'; // Remove border when closed
+                        navContainer.style.borderColor = 'transparent';
                     }
                 });
             }
 
-            // Close mobile menu when a nav link is clicked
             allNavLinks.forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     if (navContainer.classList.contains('open') && window.innerWidth < 768) {
                         navContainer.classList.remove('open');
                         navContainer.classList.add('hidden');
                         hamburgerIcon.textContent = 'menu';
-                        navContainer.style.borderColor = 'transparent'; // Remove border when closed by clicking link
+                        navContainer.style.borderColor = 'transparent';
                     }
                     e.preventDefault();
                     document.querySelector(this.getAttribute('href')).scrollIntoView({
@@ -709,14 +677,12 @@
                 });
             });
 
-            // Adjust header/nav display on resize (for desktop view)
             window.addEventListener('resize', () => {
                 if (window.innerWidth >= 768) {
                     navContainer.classList.remove('hidden', 'open');
-                    // Ensure desktop background is always correct regardless of mobile state
-                    setTheme(body.classList.contains('dark-mode')); // Re-apply theme to set background
+                    setTheme(body.classList.contains('dark-mode'));
                     if (hamburgerIcon) hamburgerIcon.textContent = 'menu';
-                    navContainer.style.borderColor = 'transparent'; // Ensure no border on desktop
+                    navContainer.style.borderColor = 'transparent';
                 } else {
                     if (!navContainer.classList.contains('open')) {
                         navContainer.classList.add('hidden');
